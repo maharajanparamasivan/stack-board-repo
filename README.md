@@ -1,1 +1,1 @@
-# Frontend Reporsitory
+# Frontend Repository
