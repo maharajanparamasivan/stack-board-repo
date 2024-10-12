@@ -3,6 +3,27 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true
+  },
+  "projects": {
+    "stack-utils": {
+      "type": "library",
+      "root": "libs/stack-utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/stack-utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/stack-utils/tsconfig.lib.json"
+      }
+    },
+    "prisma-pg-connector": {
+      "type": "library",
+      "root": "libs/prisma-pg-connector",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma-pg-connector/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma-pg-connector/tsconfig.lib.json"
+      }
+    }
   }
 }

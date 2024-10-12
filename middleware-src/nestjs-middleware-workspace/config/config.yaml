@@ -1,0 +1,11 @@
+http:
+  host: 'localhost'
+  port: 3000
+
+db:
+  url: "postgresql://sakai:ghost@localhost:5432/stack_board?schema=public"
+  host: "localhost"
+  port: 5432
+  username: "sakai"
+  password: "ghost"
+  database: "stack_board"

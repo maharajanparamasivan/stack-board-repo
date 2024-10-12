@@ -16,6 +16,38 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "db/prisma-postgres-connector": [
+        "libs/prisma-postgres-connector/src"
+      ],
+      "db/prisma-postgres-connector/*": [
+        "libs/prisma-postgres-connector/src/*"
+      ],
+      "@stackdb/prisma-stackdb-connector": [
+        "libs/prisma-stackdb-connector/src"
+      ],
+      "@stackdb/prisma-stackdb-connector/*": [
+        "libs/prisma-stackdb-connector/src/*"
+      ],
+      "@stackboard/stack-utils": [
+        "libs/stack-utils/src"
+      ],
+      "@stackboard/stack-utils/*": [
+        "libs/stack-utils/src/*"
+      ],
+      "@stackboard/prisma-pg-connector": [
+        "libs/prisma-pg-connector/src"
+      ],
+      "@stackboard/prisma-pg-connector/*": [
+        "libs/prisma-pg-connector/src/*"
+      ],
+      "@stackboard/stack-db-service-util": [
+        "src/stack-exchange/stack-db-service-util/src"
+      ],
+      "@stackboard/stack-db-service-util/*": [
+        "src/stack-exchange/stack-db-service-util/src/*"
+      ]
+    }
   }
 }
