@@ -1,7 +1,5 @@
-import { StackExchange } from "@prisma/client";
+import { StackExchangeModel } from 'src/stack-exchange/entities/stack-exchange.entity';
 
-export class CreateStackExchangeDto{
-    title: string;
-    description: string;
-    published: boolean;
+export class CreateStackExchangeDto extends StackExchangeModel{
+
 }

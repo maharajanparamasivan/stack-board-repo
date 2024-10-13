@@ -1,15 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseFilters } from '@nestjs/common';
 import { StackExchangeService } from './stack-exchange.service';
 import { CreateStackExchangeDto } from './dto/create-stack-exchange.dto';
 import { UpdateStackExchangeDto } from './dto/update-stack-exchange.dto';
+import { PrismaClientExceptionFilter } from 'src/db-local-service-util/exception-filters/prisma-exception.filter';
 
 @Controller('stackexchange')
+@UseFilters(PrismaClientExceptionFilter) 
 export class StackExchangeController {
   constructor(private readonly stackExchangeService: StackExchangeService) {}
 
   @Post()
   create(@Body() createStackExchangeDto: CreateStackExchangeDto) {
-    return this.stackExchangeService.create(createStackExchangeDto);
+  return this.stackExchangeService.create(createStackExchangeDto);
   }
 
   @Get()

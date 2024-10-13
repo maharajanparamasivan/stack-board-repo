@@ -1,22 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { CreateStackExchangeDto } from './dto/create-stack-exchange.dto';
 import { UpdateStackExchangeDto } from './dto/update-stack-exchange.dto';
-import { StackExchangeLocalServiceUtil } from '../db-local-service-util/stack-exchange-local-service-util/stack-exchange-local-service-util';
-import { StackBoardPersistenceFactory } from '../db-local-service-util/persistence-factory/stack-board-persistence-factory';
+import { StackExchangeServiceProviderUtil } from '../db-local-service-util/stack-exchange-service-provider-util/stack-exchange-service-provider-util';
+import { StackExchangePersistenceFactory } from '../db-local-service-util/persistence-factory/persistence-factory';
 
 
 
 @Injectable()
 export class StackExchangeService {
 
-  constructor(private readonly stackBoardPersistenceFactory: StackBoardPersistenceFactory) {}
+  //Creating an object of the persistence factory which gives you the singleton object for the specific entity
+  constructor(private readonly stackExchangesPersistenceFactory: StackExchangePersistenceFactory) {}
   
-  create(createStackExchangeDto: CreateStackExchangeDto) {
-    StackExchangeLocalServiceUtil.createStackExchange(createStackExchangeDto);
+   create(createStackExchangeDto: CreateStackExchangeDto) {
+    return StackExchangeServiceProviderUtil.createStackExchange(createStackExchangeDto);
   }
-
+  
   findAll() {
-    return `This action returns all stackExchange`;
+    return StackExchangeServiceProviderUtil.fetchAllStackExchange();
   }
 
   findOne(id: number) {
@@ -24,10 +25,10 @@ export class StackExchangeService {
   }
 
   update(id: number, updateStackExchangeDto: UpdateStackExchangeDto) {
-    return `This action updates a #${id} stackExchange`;
+    return StackExchangeServiceProviderUtil.updateStackExchange(id, updateStackExchangeDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} stackExchange`;
+    return StackExchangeServiceProviderUtil.deleteStackExchange(id);
   }
 }
